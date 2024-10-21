@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Editar producto</h1>
+  
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="id">ID:</label>
+      <input id="id" formControlName="id" />
+      <div *ngIf="isFieldInvalid('id')">Id es requerido (3-10 caracteres).</div>
+    </div>
+
+    <div>
+      <label for="logo">Logo:</label>
+      <input id="logo" formControlName="logo" />
+      <div *ngIf="isFieldInvalid('logo')">Logo es requerido.</div>
+    </div>
+
+    <div>
+      <label for="name">Nombre:</label>
+      <input id="name" formControlName="name" />
+      <div *ngIf="isFieldInvalid('name')">Nombre es requerido (5-100 caracteres).</div>
+    </div>
+
+    <div>
+      <label for="description">Descripcion:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="isFieldInvalid('description')">Descripcion es requerido (3-10 caracteres).</div>
+    </div>
+
+    <div>
+      <label for="date_release">Fecha de entrega:</label>
+      <input type="date" id="date_release" formControlName="date_release" />
+      <div *ngIf="isFieldInvalid('date_release')">Fecha de entrega invalida.</div>
+    </div>
+
+    <div>
+      <label for="date_revision">Fecha de revision:</label>
+      <input type="date" id="date_revision" formControlName="date_revision" />
+      <div *ngIf="isFieldInvalid('date_revision')">Fecha de entrega invalida.</div>
+    </div>
+
+    <button type="submit">Crear Product</button>
+
+  </form>
+</div>
