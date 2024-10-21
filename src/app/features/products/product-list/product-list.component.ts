@@ -14,6 +14,7 @@ import { SearchListService  } from "../../../shared/services/search-list.service
 })
 export class ProductListComponent {
   searchTerm: string = '';
+  limit: number = 4;
 
   constructor(private searchListService: SearchListService) {}
 
@@ -42,10 +43,28 @@ export class ProductListComponent {
       "deliveryDate": new Date(2024, 12, 31),
       "reviewDate": new Date(2025, 10, 15),
     },
+    {
+      "id": "4",
+      "name": "Tarjeta de debito",
+      "description": "Reposición por perdida",
+      "logo": "logo.png",
+      "deliveryDate": new Date(2024, 12, 31),
+      "reviewDate": new Date(2025, 10, 15),
+    },
+    {
+      "id": "5",
+      "name": "Tarjeta de debito",
+      "description": "Reposición por perdida",
+      "logo": "logo.png",
+      "deliveryDate": new Date(2024, 12, 31),
+      "reviewDate": new Date(2025, 10, 15),
+    },
   ];
 
   // Function to filter products based on search term
   get filteredProducts(): Product[] {
-    return this.searchListService.filterList(this.products, this.searchTerm);
+    return this.searchListService
+    .filterList(this.products, this.searchTerm)
+    .slice(0, this.limit);
   }
 }

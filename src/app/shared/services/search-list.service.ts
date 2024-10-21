@@ -9,7 +9,7 @@ export class SearchListService {
 
   filterList<T>(list: T[], searchTerm: string): T[] {
     if (!searchTerm) {
-      return list;
+      return list
     }
 
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
