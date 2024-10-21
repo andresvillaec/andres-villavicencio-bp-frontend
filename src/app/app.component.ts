@@ -11,5 +11,5 @@ import { ContentComponent} from "./shared/components/content/content.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'andres-villavicencio-bp-frontend';
+  title = 'Andres Villacencio Angular BP';
 }
