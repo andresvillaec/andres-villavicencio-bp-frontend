@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Product } from "../models/product.model";
-import { ProductResponse } from "../interfaces/product-response";
 
 @Injectable({
   providedIn: 'root'  // Ensure this service is available globally

@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { DefaultDatePipe } from "../../../shared/pipes/default-date.pipe";
 import { SearchListService  } from "../../../shared/services/search-list.service";
 import { ProductService } from "../services/product.service";
-import { ProductResponse } from '../interfaces/product-response';
 
 @Component({
   selector: 'app-product-list',
