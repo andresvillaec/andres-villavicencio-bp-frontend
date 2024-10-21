@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Product } from "../models/product.model";
+import { HttpGenericService } from "../../../core/services/http-generic.service";
 
 @Injectable({
   providedIn: 'root'  // Ensure this service is available globally
@@ -11,25 +12,27 @@ import { Product } from "../models/product.model";
 export class ProductService {
   private apiUrl = 'http://localhost:3002/bp/products';  // API endpoint
 
-  constructor(private http: HttpClient) {}  // Inject HttpClient here
+  constructor(private httpGenericService: HttpGenericService<Product>) {}  // Inject HttpClient here
 
-  getProducts(): Observable<{ data: Product[] }> {
-    return this.http.get<{ data: Product[] }>(this.apiUrl); // Define the expected response type
+  getProducts(): Observable<Product[]> {
+    // We ensure the response uses '{ data: Product[] }' shape
+    return this.httpGenericService.getAll<{ data: Product[] }>(this.apiUrl)
+      .pipe(
+        map(response => response.data)  // Safely extract products array from 'data' field
+      );
   }
-
   getProductById(id: string): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`);  // Now returns a flat Product object
+    return this.httpGenericService.getById(this.apiUrl, id);
+  }
+  createProduct(product: Product): Observable<Product> {
+    return this.httpGenericService.create(this.apiUrl, product);
   }
 
-  createProduct(product: Product): Observable<{ data: Product }> {
-    return this.http.post<{ data: Product }>(this.apiUrl, product);  // Define the response type
-  }
-
-  updateProduct(id: string, product: Product): Observable<{ data: Product }> {
-    return this.http.put<{ data: Product }>(`${this.apiUrl}/${id}`, product);
+  updateProduct(id: string, product: Product): Observable<Product> {
+    return this.httpGenericService.update(this.apiUrl, id, product);
   }
 
   deleteProduct(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.httpGenericService.delete(this.apiUrl, id);
   }
 }

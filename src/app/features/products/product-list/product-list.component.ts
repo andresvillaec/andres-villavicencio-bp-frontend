@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit {
   loadProducts(): void {
     this.productService.getProducts().subscribe({
       next: (response) => {
-        this.products = response.data;  // Assigning fetched data to products array
+        this.products = response;  // Assigning fetched data to products array
       },
       error: (error) => {
         console.error('There was an error!', error);
