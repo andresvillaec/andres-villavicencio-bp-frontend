@@ -1,0 +1,38 @@
+/* Header Styles */
+header {
+  background-color: #f8f9fa;  /* Optional: Add a background for your header */
+  padding: 20px;
+  text-align: left;            /* Adjust based on your layout */
+}
+
+.header-container {
+  max-width: 1200px;           /* Optional: restrict how wide the header can get */
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start; /* Align logo to the left */
+  align-items: center;         /* Vertically center content in the header */
+}
+
+/* Logo Image Styles */
+.logo-link {
+  text-decoration: none;       /* Remove underline for logo link */
+}
+
+.logo {
+  max-width: 150px;            /* Ensure the logo doesn't get too large */
+  width: 100%;                 /* Responsive: Let it scale as needed */
+  height: auto;                /* Maintain aspect ratio */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .logo {
+    max-width: 120px;           /* Slightly smaller on mobile screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo {
+    max-width: 100px;           /* Even smaller for very small screens */
+  }
+}
