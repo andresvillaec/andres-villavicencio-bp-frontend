@@ -1,5 +1,5 @@
 /* General Layout for Edit Page */
-.edit-product-page {
+.form-wrapper {
   max-width: 700px;
   margin: 40px auto;
   padding: 20px;
@@ -89,7 +89,7 @@ button:disabled {
 
 /* Responsive Design for Mobile screens */
 @media (max-width: 768px) {
-  .edit-product-page {
+  .form-wrapper {
     padding: 15px;
   }
 
