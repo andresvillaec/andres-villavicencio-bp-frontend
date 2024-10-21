@@ -35,7 +35,8 @@
           <th>{{product.date_release | defaultDate}}</th>
           <th>{{product.date_revision | defaultDate}}</th>
           <th>
-            <span> <a routerLink="/products/{{product.id}}" class="nav-link active">Editar</a></span>
+            <span><a routerLink="/products/{{product.id}}" class="nav-link active">Editar</a></span>
+            <span><button (click)="deleteProduct(product.id)">Delete</button></span>
           </th>
         </tr>
       </tbody>
@@ -51,3 +52,8 @@
     <span>elementos</span>
   </section>
 </div>
+
+<app-confirmation-popup *ngIf="showDeletePopup"
+  (confirmDelete)="confirmDelete()"
+  (cancelDelete)="cancelDelete()">
+</app-confirmation-popup>

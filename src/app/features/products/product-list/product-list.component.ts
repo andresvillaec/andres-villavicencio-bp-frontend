@@ -6,11 +6,12 @@ import { DefaultDatePipe } from "../../../shared/pipes/default-date.pipe";
 import { SearchListService  } from "../../../shared/services/search-list.service";
 import { ProductService } from "../services/product.service";
 import { RouterLink, RouterOutlet } from "@angular/router";
+import { ConfirmationPopupComponent } from "../../../shared/components/confirmation-popup/confirmation-popup.component";
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, DefaultDatePipe, FormsModule, RouterLink, RouterOutlet],
+  imports: [CommonModule, DefaultDatePipe, FormsModule, RouterLink, RouterOutlet, ConfirmationPopupComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -19,6 +20,8 @@ export class ProductListComponent implements OnInit {
   limit: number = 5;
   products: Product[] = [];
   errorMessage: string = ''; // Holds error messages
+  productIdToDelete?: string;   // ID of the product to delete
+  showDeletePopup: boolean = false;  // Toggle for showing the delete popup
   
   constructor(private searchListService: SearchListService, private productService: ProductService) {}
 
@@ -40,6 +43,34 @@ export class ProductListComponent implements OnInit {
 
   addProduct() : void {
     alert('Product added');
+  }
+
+  // Trigger delete flow - show the delete confirmation popup
+  deleteProduct(productId: string): void {
+    this.productIdToDelete = productId;  // Set the ID of the product to delete
+    this.showDeletePopup = true;         // Show the confirmation popup
+  }
+
+  // Confirm the product deletion
+  confirmDelete(): void {
+    if (this.productIdToDelete) {
+      this.productService.deleteProduct(this.productIdToDelete).subscribe({
+        next: () => {
+          alert('Product deleted successfully!');
+          this.showDeletePopup = false;  // Hide the popup after deletion
+          this.loadProducts();  // Reload the product list after deletion
+        },
+        error: (err) => {
+          console.error('Error deleting product:', err);
+          alert('Failed to delete product.');
+        }
+      });
+    }
+  }
+
+  // Cancel the delete operation and hide the popup
+  cancelDelete(): void {
+    this.showDeletePopup = false;  // Hide the confirmation popup
   }
 
   // public products: Product[] = [
