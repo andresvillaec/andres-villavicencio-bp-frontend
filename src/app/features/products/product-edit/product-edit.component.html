@@ -1,1 +1,52 @@
-<p>product-edit works!</p>
+<div class="container">
+  <h1>Agregar producto</h1>
+  
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    <!-- ID Field with validation -->
+    <div>
+      <label for="id">ID:</label>
+      <input id="id" formControlName="id" />
+      <div *ngIf="isFieldInvalid('id')">ID is required (3-10 characters).</div>
+    </div>
+
+    <!-- Logo Field with validation -->
+    <div>
+      <label for="logo">Logo:</label>
+      <input id="logo" formControlName="logo" />
+      <div *ngIf="isFieldInvalid('logo')">Logo is required.</div>
+    </div>
+
+    <!-- Name Field with validation -->
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+      <div *ngIf="isFieldInvalid('name')">Name is required (5-100 characters).</div>
+    </div>
+
+    <!-- Description Field with validation -->
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="isFieldInvalid('description')">Description is required (10-200 characters).</div>
+    </div>
+
+    <!-- Date Release Field with validation -->
+    <div>
+      <label for="date_release">Release Date:</label>
+      <input type="date" id="date_release" formControlName="date_release" />
+      <div *ngIf="isFieldInvalid('date_release')">Release date must be greater than the current date.</div>
+    </div>
+
+    <!-- Date Revision Field with validation -->
+    <div>
+      <label for="date_revision">Revision Date:</label>
+      <input type="date" id="date_revision" formControlName="date_revision" />
+      <div *ngIf="isFieldInvalid('date_revision')">Revision date must be exactly one year after the release date.</div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Crear Product</button>
+
+  </form>
+</div>

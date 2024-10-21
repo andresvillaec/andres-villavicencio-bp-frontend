@@ -16,4 +16,8 @@ export class ProductService {
   getProducts(): Observable<{ data: Product[] }> {
     return this.http.get<{ data: Product[] }>(this.apiUrl); // Define the expected response type
   }
+
+  createProduct(product: Product): Observable<{ data: Product }> {
+    return this.http.post<{ data: Product }>(this.apiUrl, product);  // Define the response type
+  }
 }
