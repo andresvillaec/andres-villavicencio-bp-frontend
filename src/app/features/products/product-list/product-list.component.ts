@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { DefaultDatePipe } from "../../../shared/pipes/default-date.pipe";
 import { SearchListService  } from "../../../shared/services/search-list.service";
 import { ProductService } from "../services/product.service";
+import { RouterLink, RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, DefaultDatePipe, FormsModule],
+  imports: [CommonModule, DefaultDatePipe, FormsModule, RouterLink, RouterOutlet],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -35,6 +36,10 @@ export class ProductListComponent implements OnInit {
         this.errorMessage = 'Error loading products';  // Handle errors
       }
     });
+  }
+
+  addProduct() : void {
+    alert('Product added');
   }
 
   // public products: Product[] = [

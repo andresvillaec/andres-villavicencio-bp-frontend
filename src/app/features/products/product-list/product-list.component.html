@@ -1,10 +1,15 @@
 <div>
   <section>
-    <input 
-    class="search-input" 
-    type="text" 
-    placeholder="Search..." 
-    [(ngModel)]="searchTerm"/>
+    <div>
+      <input 
+      class="search-input" 
+      type="text" 
+      placeholder="Search..." 
+      [(ngModel)]="searchTerm"/>
+    </div>
+    <div>
+      <a routerLink="/products/create" class="nav-link active">Agregar</a>
+    </div>
   </section>
   <section>
     <table class="table table-striped">
