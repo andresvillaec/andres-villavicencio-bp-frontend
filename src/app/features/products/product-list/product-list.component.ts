@@ -15,7 +15,7 @@ import { ProductService } from "../services/product.service";
 })
 export class ProductListComponent implements OnInit {
   searchTerm: string = '';
-  limit: number = 4;
+  limit: number = 5;
   products: Product[] = [];
   errorMessage: string = ''; // Holds error messages
   
