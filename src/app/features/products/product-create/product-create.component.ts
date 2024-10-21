@@ -7,13 +7,13 @@ import { Product } from "../models/product.model";
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-product-edit',
+  selector: 'app-product-create',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './product-edit.component.html',
-  styleUrl: './product-edit.component.css'
+  templateUrl: './product-create.component.html',
+  styleUrl: './product-create.component.css'
 })
-export class ProductEditComponent implements OnInit {
+export class ProductCreateComponent implements OnInit {
   productForm!: FormGroup; // Angular form group
   today = new Date(); // To compare the release date
 
