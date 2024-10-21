@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
 import { HttpGenericService } from './http-generic.service';
+import { Product } from '../../features/products/models/product.model';
 
 describe('HttpGenericService', () => {
-  let service: HttpGenericService;
+  let service: HttpGenericService<Product>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

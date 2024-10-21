@@ -2,13 +2,9 @@
   <div class="popup-content">
     <h3>Eliminar product</h3>
     <p>¿Estas seguro de eliminar el producto {{ productName }}?</p>
-
-    <!-- Confirm and Cancel buttons -->
     <div class="popup-buttons">
-      <!-- Emit confirmDelete event -->
-      <button (click)="onConfirm()" class="confirm-btn">Yes, Delete</button>
-      <!-- Emit cancelDelete event -->
-      <button (click)="onCancel()" class="cancel-btn">Cancel</button>
+      <button (click)="onConfirm()" class="confirm-btn">Eliminar</button>
+      <button (click)="onCancel()" class="cancel-btn">Cancelar</button>
     </div>
   </div>
 </div>

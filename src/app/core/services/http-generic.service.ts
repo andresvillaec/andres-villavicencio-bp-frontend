@@ -14,22 +14,22 @@ export class HttpGenericService<T> {
     return this.http.get<R>(url);  // R to be inferred from the specific service
   }
 
-  // Get one entity by ID
+  // Get entity by ID
   getById(url: string, id: string): Observable<T> {
     return this.http.get<T>(`${url}/${id}`);
   }
 
-  // Add (create) one entity
+  // Add (create) an entity
   create(url: string, data: T): Observable<T> {
     return this.http.post<T>(url, data);
   }
 
-  // Update one entity by ID
+  // Update entity by ID
   update(url: string, id: string, data: T): Observable<T> {
     return this.http.put<T>(`${url}/${id}`, data);
   }
 
-  // Delete one entity by ID
+  // Delete entity by ID
   delete(url: string, id: string): Observable<void> {
     return this.http.delete<void>(`${url}/${id}`);
   }
