@@ -34,13 +34,36 @@ export class ProductEditComponent implements OnInit {
       logo: ['', [Validators.required]],
       name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(200)]],
-      date_release: ['', [Validators.required]], // Custom validator for > today
-      date_revision: ['', [Validators.required]] // Custom validator for +1 year
+      date_release: ['', [Validators.required, this.dateReleaseValidator()]], // Custom validator for > today
+      date_revision: ['', [Validators.required, this.dateRevisionValidator()]] // Custom validator for +1 year
     });
   }
 
   isFieldInvalid(field: string): boolean {
     return !!(this.productForm.get(field)?.invalid && this.productForm.get(field)?.touched);
+  }
+
+  dateReleaseValidator() {
+    return (control: any) => {
+      const selected = new Date(control.value);
+
+      // Reset time to midnight (00:00) on both selected and today's dates to compare just the dates.
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);     // Set today’s time to 00:00:00 for comparison
+      selected.setHours(0, 0, 0, 0);  // Set the selected time to 00:00:00 for comparison
+
+      // If the selected date is today or a future date, it is valid.
+      return selected >= today ? null : { pastDate: true };
+    };
+  }
+
+  dateRevisionValidator() {
+    return (control: any) => {
+      const selectedDate = new Date(control.value);
+      const releaseDate = new Date(this.productForm?.get('date_release')?.value);
+      const nextYear = releaseDate.setFullYear(releaseDate.getFullYear() + 1);
+      return selectedDate.getTime() === nextYear ? null : { notNextYear: true };
+    };
   }
 
   // Submit the form
