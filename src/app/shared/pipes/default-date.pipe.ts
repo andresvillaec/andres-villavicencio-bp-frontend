@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { formatDate } from '@angular/common';
-import { DateFormat } from "../constants";
+import { DateFormat, DateLocate } from "../constants";
 
 @Pipe({
   name: 'defaultDate',
@@ -8,6 +8,6 @@ import { DateFormat } from "../constants";
 })
 export class DefaultDatePipe implements PipeTransform {
   transform(value: Date | string | number): string {
-    return formatDate(value, DateFormat, 'en-US');
+    return formatDate(value, DateFormat, DateLocate);
   }
 }

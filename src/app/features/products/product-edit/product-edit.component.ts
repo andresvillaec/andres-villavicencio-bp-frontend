@@ -3,10 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { formatDate } from '@angular/common'; 
 import { ProductService } from "../services/product.service";
 import { Product } from "../models/product.model";4
-import { DateFormat, DateLocate } from "../../../shared/constants";
 
 @Component({
   selector: 'app-product-edit',
