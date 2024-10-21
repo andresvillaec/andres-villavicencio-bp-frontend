@@ -1,22 +1,31 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th scope="col">Logo</th>
-      <th scope="col">Nombre del producto</th>
-      <th scope="col">Descripción</th>
-      <th scope="col">Fecha Inicio</th>
-      <th scope="col">Fecha Fin</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr scope="row" *ngFor="let product of products; let i = index">
-      <th>{{i + 1}}</th>
-      <th>{{product.logo}}</th>
-      <th>{{product.name}}</th>
-      <th>{{product.description}}</th>
-      <th>{{product.deliveryDate | defaultDate}}</th>
-      <th>{{product.reviewDate | defaultDate}}</th>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <input 
+  class="search-input" 
+  type="text" 
+  placeholder="Search products..." 
+  [(ngModel)]="searchTerm"/>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th scope="col">Logo</th>
+          <th scope="col">Nombre del producto</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Fecha Inicio</th>
+          <th scope="col">Fecha Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr scope="row" *ngFor="let product of filteredProducts; let i = index">
+          <th>{{i + 1}}</th>
+          <th>{{product.logo}}</th>
+          <th>{{product.name}}</th>
+          <th>{{product.description}}</th>
+          <th>{{product.deliveryDate | defaultDate}}</th>
+          <th>{{product.reviewDate | defaultDate}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
