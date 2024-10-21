@@ -15,8 +15,8 @@
       <th>{{product.logo}}</th>
       <th>{{product.name}}</th>
       <th>{{product.description}}</th>
-      <th>{{product.deliveryDate | date: dateFormat}}</th>
-      <th>{{product.reviewDate | date: dateFormat}}</th>
+      <th>{{product.deliveryDate | defaultDate}}</th>
+      <th>{{product.reviewDate | defaultDate}}</th>
     </tr>
   </tbody>
 </table>
