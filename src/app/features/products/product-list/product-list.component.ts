@@ -20,8 +20,9 @@ export class ProductListComponent implements OnInit {
   limit: number = 5;
   products: Product[] = [];
   errorMessage: string = ''; // Holds error messages
-  productIdToDelete?: string;   // ID of the product to delete
-  showDeletePopup: boolean = false;  // Toggle for showing the delete popup
+  productIdToDelete?: string;
+  productNameToDelete?: string;
+  showDeletePopup: boolean = false;
   
   constructor(private searchListService: SearchListService, private productService: ProductService) {}
 
@@ -46,9 +47,10 @@ export class ProductListComponent implements OnInit {
   }
 
   // Trigger delete flow - show the delete confirmation popup
-  deleteProduct(productId: string): void {
-    this.productIdToDelete = productId;  // Set the ID of the product to delete
-    this.showDeletePopup = true;         // Show the confirmation popup
+  deleteProduct(productId: string, productName: string): void {
+    this.productIdToDelete = productId;
+    this.productNameToDelete = productName;
+    this.showDeletePopup = true;
   }
 
   // Confirm the product deletion

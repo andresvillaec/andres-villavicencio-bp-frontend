@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-confirmation-popup',
@@ -8,6 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './confirmation-popup.component.css'
 })
 export class ConfirmationPopupComponent {
+  @Input() productName: string | undefined;
+
 // Event emitted when the user confirms the deletion
   @Output() confirmDelete = new EventEmitter<void>();
 

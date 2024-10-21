@@ -36,7 +36,7 @@
           <th>{{product.date_revision | defaultDate}}</th>
           <th>
             <span><a routerLink="/products/{{product.id}}" class="nav-link active">Editar</a></span>
-            <span><button (click)="deleteProduct(product.id)">Delete</button></span>
+            <span><button (click)="deleteProduct(product.id, product.name)">Delete</button></span>
           </th>
         </tr>
       </tbody>
@@ -54,6 +54,7 @@
 </div>
 
 <app-confirmation-popup *ngIf="showDeletePopup"
+  [productName]="productNameToDelete" 
   (confirmDelete)="confirmDelete()"
   (cancelDelete)="cancelDelete()">
 </app-confirmation-popup>
