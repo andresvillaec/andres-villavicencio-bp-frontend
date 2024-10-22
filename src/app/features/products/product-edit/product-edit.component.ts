@@ -92,6 +92,10 @@ export class ProductEditComponent {
     }
   }
 
+  resetForm(): void {
+    this.productForm.reset();
+  }
+
   onSubmit(): void {
     if (this.productForm.valid) {
       const updatedProduct: Product = {
