@@ -66,6 +66,10 @@ export class ProductCreateComponent implements OnInit {
     };
   }
 
+  resetForm(): void {
+    this.productForm.reset();
+  }
+
   // Submit the form
   onSubmit(): void {
     if (this.productForm.valid) {

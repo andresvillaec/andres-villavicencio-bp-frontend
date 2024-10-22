@@ -24,6 +24,19 @@ body {
   max-width: 1200px;
 }
 
+.button-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.button-element {
+  flex: 1;
+  text-align: center;
+}
+
 /* Action Buttons */
 button {
   background-color: #ffdd00;
