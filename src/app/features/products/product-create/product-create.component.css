@@ -26,7 +26,7 @@ h1 {
 
 /* Form group styling */
 .form-group {
-  flex: 0 0 48%;                /* Take about 48% of the container width, leaving space for the gap */
+  flex: 0 0 48%;
   display: flex;
   flex-direction: column;
   padding-bottom: 15px;

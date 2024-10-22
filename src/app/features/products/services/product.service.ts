@@ -3,12 +3,13 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from "../models/product.model";
 import { HttpGenericService } from "../../../core/services/http-generic.service";
+import { ApiUrl } from "../../../../../environments/environments";
 
 @Injectable({
   providedIn: 'root'  // Ensure this service is available globally
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3002/bp/products';  // API endpoint
+  private apiUrl = ApiUrl;  // API endpoint
 
   constructor(private httpGenericService: HttpGenericService<Product>) {} 
 
