@@ -29,10 +29,11 @@ button {
   background-color: #ffdd00;
   color: #0f265c;
   border: none;
-  padding: 8px 12px;
+  padding: 15px 20px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  font-size: medium;
 }
 
 button:hover {
@@ -42,6 +43,11 @@ button:hover {
 button.btn-cancel{
   background-color: #e9ecf3;
   color: #0f265c;
+}
+
+.button-section{
+  padding-top: 50px;
+  text-align: center;
 }
 
 /* Responsive breakpoints for container sizes */
