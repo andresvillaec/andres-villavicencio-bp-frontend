@@ -20,31 +20,18 @@ section {
 
 /* Navigation Link */
 .nav-link {
-  background-color: #007bff;
-  color: white;
+  background-color: #ffdd00;
+  color: #0f265c;
   padding: 8px 16px;
   text-decoration: none;
   font-size: 14px;
   border-radius: 4px;
   display: inline-block;
+  font-weight: bold;
 }
 
 .nav-link:hover {
-  background-color: #0056b3;
-}
-
-/* Action Buttons */
-button {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #c82333;
+  background-color: #ffc500;
 }
 
 /* Table (Responsive Design) */
@@ -63,6 +50,7 @@ thead th {
 
 tbody th {
   background-color: #f8f9fa;
+  font-weight: lighter;
 }
 
 tbody tr:hover {
@@ -126,6 +114,25 @@ td span {
   td:nth-of-type(8):before { content: "Acciones"; }
 }
 
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+/* The child divs */
+.results-products {
+  flex-grow: 1;
+}
+
+/* Styling for content on the right */
+.number-products {
+  white-space: nowrap;
+}
 /* Limit Select (pagination) */
 label {
   font-size: 14px;

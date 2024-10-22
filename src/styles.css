@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+/* Base Container Styles */
+
+body {
+  font-family: Helvetica, Arial, Sans, Sans-serif;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  
+  /* For large viewports */
+  max-width: 1200px;
+}
+
+/* Action Buttons */
+button {
+  background-color: #ffdd00;
+  color: #0f265c;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #ffc500;
+}
+
+button.btn-cancel{
+  background-color: #e9ecf3;
+  color: #0f265c;
+}
+
+/* Responsive breakpoints for container sizes */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%; /* 100% Width for small screens */
+  }
+}

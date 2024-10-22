@@ -15,7 +15,6 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
           <th scope="col">Id</th>
           <th scope="col">Logo</th>
           <th scope="col">Nombre del producto</th>
@@ -26,8 +25,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr scope="row" *ngFor="let product of filteredProducts; let i = index">
-          <th>{{i + 1}}</th>
+        <tr scope="row" *ngFor="let product of filteredProducts">
           <th>{{product.id}}</th>
           <th>{{product.logo}}</th>
           <th>{{product.name}}</th>
@@ -36,20 +34,25 @@
           <th>{{product.date_revision | defaultDate}}</th>
           <th>
             <span><a routerLink="/products/{{product.id}}" class="nav-link active">Editar</a></span>
-            <span><button (click)="deleteProduct(product.id, product.name)">Delete</button></span>
+            <span><button class="btn-cancel" (click)="deleteProduct(product.id, product.name)">Delete</button></span>
           </th>
         </tr>
       </tbody>
     </table>
   </section>
-  <section>
-    <label for="limitSelect">Show:</label>
-    <select id="limitSelect" [(ngModel)]="limit">
-      <option [value]="5">5</option>
-      <option [value]="10">10</option>
-      <option [value]="20">20</option>
-    </select>
-    <span>elementos</span>
+  <section class="table-footer">
+    <div class="results-products">
+      <span>{{filteredProducts.length}} Resultados</span>
+    </div>
+    <div class="number-products">
+      <label for="limitSelect">Show:</label>
+      <select id="limitSelect" [(ngModel)]="limit">
+        <option [value]="5">5</option>
+        <option [value]="10">10</option>
+        <option [value]="20">20</option>
+      </select>
+      <span>elementos</span>
+    </div>
   </section>
 </div>
 
