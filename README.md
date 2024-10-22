@@ -5,6 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Set server api url in environments/environments.ts 
+If you get any issues related to CORS in main.ts file uncomment this sentece //cors: true,
 
 ## Code scaffolding
 
