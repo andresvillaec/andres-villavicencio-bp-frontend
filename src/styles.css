@@ -49,6 +49,18 @@ button {
   font-size: medium;
 }
 
+.nav-link{
+  background-color: #ffdd00;
+  color: #0f265c;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: medium;
+  text-decoration: none;
+}
+
 button:hover {
   background-color: #ffc500;
 }

@@ -33,8 +33,14 @@
           <th>{{product.date_release | defaultDate}}</th>
           <th>{{product.date_revision | defaultDate}}</th>
           <th>
-            <span><a routerLink="/products/{{product.id}}" class="nav-link active">Editar</a></span>
-            <span><button class="btn-cancel" (click)="deleteProduct(product.id, product.name)">Delete</button></span>
+            <div class="button-section">
+              <div class="button-element">
+                <a routerLink="/products/{{product.id}}" class="nav-link active">Editar</a>
+              </div>
+              <div class="button-element">
+                <button class="btn-cancel" (click)="deleteProduct(product.id, product.name)">Delete</button>
+              </div>
+            </div>
           </th>
         </tr>
       </tbody>

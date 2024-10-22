@@ -18,16 +18,9 @@ section {
   box-sizing: border-box;
 }
 
-/* Navigation Link */
-.nav-link {
-  background-color: #ffdd00;
-  color: #0f265c;
-  padding: 8px 16px;
-  text-decoration: none;
-  font-size: 14px;
-  border-radius: 4px;
-  display: inline-block;
-  font-weight: bold;
+.button-section{
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link:hover {
